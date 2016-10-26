@@ -1,0 +1,34 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ALLOWED_HOSTS	it_manage_project/settings.py	/^ALLOWED_HOSTS = []$/;"	v
+AUTH_PASSWORD_VALIDATORS	it_manage_project/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	v
+BASE_DIR	it_manage_project/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	v
+DATABASES	it_manage_project/settings.py	/^DATABASES = {$/;"	v
+DEBUG	it_manage_project/settings.py	/^DEBUG = True$/;"	v
+INSTALLED_APPS	it_manage_project/settings.py	/^INSTALLED_APPS = [$/;"	v
+LANGUAGE_CODE	it_manage_project/settings.py	/^LANGUAGE_CODE = 'en-us'$/;"	v
+MIDDLEWARE	it_manage_project/settings.py	/^MIDDLEWARE = [$/;"	v
+ROOT_URLCONF	it_manage_project/settings.py	/^ROOT_URLCONF = 'it_manage_project.urls'$/;"	v
+SECRET_KEY	it_manage_project/settings.py	/^SECRET_KEY = '4pwvya1u$i(ti6f29p0rdk4gyw8ui^u#=jx!i3e9h&bzr1w=g_'$/;"	v
+STATIC_URL	it_manage_project/settings.py	/^STATIC_URL = '\/static\/'$/;"	v
+TEMPLATES	it_manage_project/settings.py	/^TEMPLATES = [$/;"	v
+TIME_ZONE	it_manage_project/settings.py	/^TIME_ZONE = 'UTC'$/;"	v
+USE_I18N	it_manage_project/settings.py	/^USE_I18N = True$/;"	v
+USE_L10N	it_manage_project/settings.py	/^USE_L10N = True$/;"	v
+USE_TZ	it_manage_project/settings.py	/^USE_TZ = True$/;"	v
+WSGI_APPLICATION	it_manage_project/settings.py	/^WSGI_APPLICATION = 'it_manage_project.wsgi.application'$/;"	v
+admin	it_manage_project/urls.py	/^from django.contrib import admin$/;"	i
+application	it_manage_project/wsgi.py	/^application = get_wsgi_application()$/;"	v
+django	manage.py	/^            import django$/;"	i
+execute_from_command_line	manage.py	/^        from django.core.management import execute_from_command_line$/;"	i
+get_wsgi_application	it_manage_project/wsgi.py	/^from django.core.wsgi import get_wsgi_application$/;"	i
+os	it_manage_project/settings.py	/^import os$/;"	i
+os	it_manage_project/wsgi.py	/^import os$/;"	i
+os	manage.py	/^import os$/;"	i
+sys	manage.py	/^import sys$/;"	i
+url	it_manage_project/urls.py	/^from django.conf.urls import url$/;"	i
+urlpatterns	it_manage_project/urls.py	/^urlpatterns = [$/;"	v
