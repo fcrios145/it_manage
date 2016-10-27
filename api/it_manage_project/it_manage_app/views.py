@@ -10,8 +10,8 @@ from rest_framework.views import APIView
 
 
 class UserViewSet(viewsets.ModelViewSet):
-    authentication_classes = (SessionAuthentication, BasicAuthentication)
-    permission_classes = (IsAuthenticated,)
+    # authentication_classes = (SessionAuthentication, BasicAuthentication)
+    # permission_classes = (IsAuthenticated,)
     """
     API endpoint that allows users to be viewed or edited.
     """
@@ -20,7 +20,7 @@ class UserViewSet(viewsets.ModelViewSet):
 
 
 class GroupViewSet(viewsets.ModelViewSet):
-    authentication_classes = (SessionAuthentication, BasicAuthentication)
+    # authentication_classes = (SessionAuthentication, BasicAuthentication)
     # permission_classes = (IsAuthenticated,)
     """
     API endpoint that allows groups to be viewed or edited.
