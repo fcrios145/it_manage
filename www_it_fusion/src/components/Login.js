@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
-import Auth from './auth';
+import Auth from '../helpers/auth';
 import $ from 'jquery';
 import { Link } from 'react-router';
 
 
 class Login extends Component {
 
+    logout(event) {
+        this.props.logout()
+    }
+
     grabLoginData(e) {
         e.preventDefault();
+        const user = this.refs.user;
+        const password = this.refs.password;
+        console.log(this.props.user);
+        console.log(this.props.login(user.value, password.value));
         //Auth.getToken('kriz', 'jirameki22');
-        Auth.login('kriz', 'jirameki22', (loggedIn) => {
+        Auth.login(user.value, password.value, (loggedIn) => {
             if (loggedIn) {
                 alert('exito');
             } else {
@@ -28,18 +36,21 @@ class Login extends Component {
                 console.log(res)
             }
         })
+        //Auth.logout();
     }
 
     render() {
+        console.log(this);
         return(
             <div className="login">
                 <div className="login-wrapper">
-                    <form onSubmit={this.grabLoginData} >
-                        <input placeholder="Usuario" type="text" />
-                        <input placeholder="Contraseña" type="password" />
+                    <form onSubmit={ (e) => this.grabLoginData(e) } >
+                        <input ref="user" placeholder="Usuario" type="text" />
+                        <input ref='password' placeholder="Contraseña" type="password" />
                         <input type="submit" value="Entrar" />
                     </form>
                     <Link to="/logueado">Loguear</Link>
+                    <span onClick={ (e) => this.logout(e) }>Logout</span>
                 </div>
             </div>
         )

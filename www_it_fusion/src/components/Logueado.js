@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-class Main extends React.Component {
+class Logueado extends React.Component {
     render() {
         return(
             <div>
@@ -11,4 +11,4 @@ class Main extends React.Component {
     }
 }
 
-export default Main
+export default Logueado

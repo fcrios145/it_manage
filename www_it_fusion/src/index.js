@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import './index.css';
-import Login from './Login';
-import Main from './components/Main';
-import Auth from './auth';
+import LoginConnect from './components/LoginConnect';
+import './styles/index.css';
+import App from './components/App';
+import Logueado from './components/Logueado';
+import Auth from './helpers/auth';
 
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+
+import { Provider } from 'react-redux';
+import store, { history } from './store';
+
+
 
 function requireAuth(nextState, replace) {
     if (!Auth.loggedIn()) {
@@ -18,12 +23,14 @@ function requireAuth(nextState, replace) {
 }
 
 const router = (
-    <Router history={browserHistory}>
-        <Route path="/" component={App}>
-            <IndexRoute component={Login}></IndexRoute>
-            <Route onEnter={requireAuth} path="/logueado" component={Main} />
-        </Route>
-    </Router>
+    <Provider store={store}>
+        <Router history={ history }>
+            <Route path="/" component={App}>
+                <IndexRoute component={LoginConnect}></IndexRoute>
+                <Route onEnter={requireAuth} path="/logueado" component={Logueado} />
+            </Route>
+        </Router>
+    </Provider>
 )
 
 ReactDOM.render(
