@@ -21,7 +21,7 @@ const defaultState = {
 }
 
 //const store = createStore(rootReducer, defaultState);
-const store = createStore(rootReducer, applyMiddleware(
+const store = createStore(rootReducer, defaultState, applyMiddleware(
     thunkMiddleware,
     loggerMiddleware
 ));

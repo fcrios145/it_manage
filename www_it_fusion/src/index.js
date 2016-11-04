@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import LoginConnect from './components/LoginConnect';
+import Logout from './components/Logout';
 import './styles/index.css';
 import App from './components/App';
-import Logueado from './components/Logueado';
+import Dashboard from './components/Dashboard';
+import TipoHardwareView from './components/TipoHardwareView';
 import Auth from './helpers/auth';
 
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute } from 'react-router';
 
 import { Provider } from 'react-redux';
 import store, { history } from './store';
+console.log(store.dispatch({type: 'LOGIN'}));
 
 
 
@@ -23,11 +26,13 @@ function requireAuth(nextState, replace) {
 }
 
 const router = (
-    <Provider store={store}>
+    <Provider store={ store }>
         <Router history={ history }>
             <Route path="/" component={App}>
                 <IndexRoute component={LoginConnect}></IndexRoute>
-                <Route onEnter={requireAuth} path="/logueado" component={Logueado} />
+                <Route onEnter={requireAuth} path="/dashboard" component={ Dashboard } />
+                <Route path="/logout" component={ Logout } />
+                <Route onEnter={requireAuth} path="/tipohardware" component={ TipoHardwareView } />
             </Route>
         </Router>
     </Provider>

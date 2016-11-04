@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import logo from '../styles/logo.svg';
 import '../styles/app.css';
+import Header from './Header';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+        <div>
+            <Header></Header>
+            <div className="main-content">
+                {React.cloneElement(this.props.children, this.props)}
+            </div>
         </div>
-        <p className="App-intro">
-        </p>
-        {React.cloneElement(this.props.children, this.props)}
-      </div>
     );
   }
 }

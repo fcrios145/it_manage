@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Auth from '../helpers/auth';
 import $ from 'jquery';
-import { Link } from 'react-router';
+import '../styles/login.css';
 
 
 class Login extends Component {
@@ -14,12 +14,11 @@ class Login extends Component {
         e.preventDefault();
         const user = this.refs.user;
         const password = this.refs.password;
-        console.log(this.props.user);
-        console.log(this.props.login(user.value, password.value));
         //Auth.getToken('kriz', 'jirameki22');
         Auth.login(user.value, password.value, (loggedIn) => {
             if (loggedIn) {
                 alert('exito');
+                this.props.router.push('dashboard');
             } else {
                 alert('no exito');
             }
@@ -40,17 +39,16 @@ class Login extends Component {
     }
 
     render() {
-        console.log(this);
         return(
             <div className="login">
                 <div className="login-wrapper">
-                    <form onSubmit={ (e) => this.grabLoginData(e) } >
-                        <input ref="user" placeholder="Usuario" type="text" />
-                        <input ref='password' placeholder="Contraseña" type="password" />
-                        <input type="submit" value="Entrar" />
-                    </form>
-                    <Link to="/logueado">Loguear</Link>
-                    <span onClick={ (e) => this.logout(e) }>Logout</span>
+                    <div className="flex-item">
+                        <form onSubmit={ (e) => this.grabLoginData(e) } >
+                            <input ref="user" placeholder="Usuario" type="text" />
+                            <input ref='password' placeholder="Contraseña" type="password" />
+                            <input type="submit" value="Entrar" />
+                        </form>
+                    </div>
                 </div>
             </div>
         )

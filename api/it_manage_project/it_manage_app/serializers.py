@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
+from it_manage_app.models import TipoHardware
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -12,3 +13,8 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
         fields = ('url', 'name')
+
+class TipoHardwareSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = TipoHardware
+        fields = ('nombre',)
