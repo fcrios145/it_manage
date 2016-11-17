@@ -16,8 +16,14 @@ const user = {
     prueba: 'prueba de atributo'
 };
 
+const tipoHardware = {
+    isFetching: false,
+    items: []
+}
+
 const defaultState = {
-    user
+    user,
+    tipoHardware
 }
 
 //const store = createStore(rootReducer, defaultState);

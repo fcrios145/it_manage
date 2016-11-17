@@ -10,6 +10,8 @@ from rest_framework.views import APIView
 from it_manage_app.models import TipoHardware
 
 
+from rest_framework import status
+from django.http import Http404
 
 class UserViewSet(viewsets.ModelViewSet):
     # authentication_classes = (SessionAuthentication, BasicAuthentication)
@@ -31,27 +33,30 @@ class GroupViewSet(viewsets.ModelViewSet):
     serializer_class = GroupSerializer
 
 
-class TipoHardwareViewSet(viewsets.ModelViewSet):
+# class TipoHardwareViewSet(viewsets.ModelViewSet):
+    # # authentication_classes = (SessionAuthentication, BasicAuthentication)
+    # # permission_classes = (IsAuthenticated,)
+    # """
+    # API endpoint that allows groups to be viewed or edited.
+    # """
+    # queryset = TipoHardware.objects.all()
+    # serializer_class = TipoHardwareSerializer
+
+
+class TipoHardwareViewSet(APIView):
     # authentication_classes = (SessionAuthentication, BasicAuthentication)
     # permission_classes = (IsAuthenticated,)
-    """
-    API endpoint that allows groups to be viewed or edited.
-    """
-    queryset = TipoHardware.objects.all()
-    serializer_class = TipoHardwareSerializer
+    def get(self, request, format=None):
+        queryset = TipoHardware.objects.all()
+        serializer = TipoHardwareSerializer(queryset, many=True)
+        return Response(serializer.data)
 
-# from rest_framework.authentication import sessionauthentication, basicauthentication
-# from rest_framework.permissions import isauthenticated
-# from rest_framework.response import response
-# from rest_framework.views import apiview
 
-# class UserViewSet(APIView):
-    # authentication_classes = (SessionAuthentication, BasicAuthentication)
-    # permission_classes = (IsAuthenticated,)
+    def post(self, request, format=None):
+        # snippet = self.get_object(pk)
+        serializer = TipoHardwareSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    # def get(self, request, format=None):
-        # content = {
-            # 'user': unicode(request.user),  # `django.contrib.auth.User` instance.
-            # 'auth': unicode(request.auth),  # None
-        # }
-        # return Response(content)
