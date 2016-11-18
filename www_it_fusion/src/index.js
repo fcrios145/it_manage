@@ -1,11 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LoginConnect from './components/LoginConnect';
+import Login from './components/Login';
 import Logout from './components/Logout';
 import './styles/index.css';
-import App from './components/App';
+import AppConnect from './components/AppConnect';
 import Dashboard from './components/Dashboard';
-import TipoHardwareViewConnect from './components/TipoHardwareViewConnect';
+import TipoHardwareView from './components/TipoHardwareView';
+import HardwareView from './components/HardwareView';
 import Auth from './helpers/auth';
 
 import { Router, Route, IndexRoute } from 'react-router';
@@ -13,7 +14,6 @@ import { Router, Route, IndexRoute } from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
 console.log(store.dispatch({type: 'LOGIN'}));
-
 
 
 function requireAuth(nextState, replace) {
@@ -28,11 +28,12 @@ function requireAuth(nextState, replace) {
 const router = (
     <Provider store={ store }>
         <Router history={ history }>
-            <Route path="/" component={App}>
-                <IndexRoute component={LoginConnect}></IndexRoute>
+            <Route path="/" component={AppConnect}>
+                <IndexRoute component={Login}></IndexRoute>
                 <Route onEnter={requireAuth} path="/dashboard" component={ Dashboard } />
                 <Route path="/logout" component={ Logout } />
-                <Route onEnter={requireAuth} path="/tipohardware" component={ TipoHardwareViewConnect } />
+                <Route onEnter={requireAuth} path="/tipohardware" component={ TipoHardwareView } />
+                <Route onEnter={requireAuth} path="/hardware" component={ HardwareView } />
             </Route>
         </Router>
     </Provider>

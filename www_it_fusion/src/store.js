@@ -21,10 +21,17 @@ const tipoHardware = {
     items: []
 }
 
+const hardware = {
+    isFetching: false,
+    items: []
+}
+
 const defaultState = {
     user,
-    tipoHardware
+    tipoHardware,
+    hardware
 }
+
 
 //const store = createStore(rootReducer, defaultState);
 const store = createStore(rootReducer, defaultState, applyMiddleware(

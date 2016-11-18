@@ -1,13 +1,13 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
-from it_manage_app.serializers import UserSerializer, GroupSerializer, TipoHardwareSerializer
+from it_manage_app.serializers import UserSerializer, GroupSerializer, TipoHardwareSerializer, HardwareSerializer
 
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from it_manage_app.models import TipoHardware
+from it_manage_app.models import TipoHardware, Hardware
 
 
 from rest_framework import status
@@ -60,3 +60,18 @@ class TipoHardwareViewSet(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+class HardwareViewSet(APIView):
+    # authentication_classes = (SessionAuthentication, BasicAuthentication)
+    # permission_classes = (IsAuthenticated,)
+    def get(self, request, format=None):
+        queryset = Hardware.objects.all()
+        serializer = HardwareSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def post(self, request, format=None):
+        # snippet = self.get_object(pk)
+        serializer = HardwareSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

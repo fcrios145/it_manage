@@ -18,23 +18,25 @@ class Login extends Component {
         Auth.login(user.value, password.value, (loggedIn) => {
             if (loggedIn) {
                 alert('exito');
+                this.props.fetchardware();
+                this.props.fetchTipoHardware();
                 this.props.router.push('dashboard');
             } else {
                 alert('no exito');
             }
         })
 
-        $.ajax({
-            method: 'GET',
-            url: Auth.baseUrl + '/users/',
-            datatype: 'json',
-            headers: {
-                'Authorization': 'Token ' + localStorage.token
-            },
-            success: function(res) {
-                console.log(res)
-            }
-        })
+        // $.ajax({
+        //     method: 'GET',
+        //     url: Auth.baseUrl + '/users/',
+        //     datatype: 'json',
+        //     headers: {
+        //         'Authorization': 'Token ' + localStorage.token
+        //     },
+        //     success: function(res) {
+        //         console.log(res)
+        //     }
+        // })
         //Auth.logout();
     }
 

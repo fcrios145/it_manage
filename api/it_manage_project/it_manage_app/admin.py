@@ -4,3 +4,5 @@ from it_manage_app.models import *
 # Register your models here.
 
 admin.site.register(TipoHardware)
+admin.site.register(Hardware);
+
