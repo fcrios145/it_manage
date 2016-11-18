@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from it_manage_app.models import TipoHardware, Hardware
+from it_manage_app.models import TipoHardware, Hardware, Ubicacion
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -24,3 +24,8 @@ class HardwareSerializer(serializers.ModelSerializer):
     class Meta:
         model = Hardware
         fields = ('id', 'nombre', 'descripcion', 'tipo_hardware', 'tipo_hardware_nombre')
+
+class UbicacionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Ubicacion
+        fields = ('id', 'nombre')

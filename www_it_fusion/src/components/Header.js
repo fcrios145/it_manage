@@ -15,6 +15,10 @@ class Header extends React.Component {
                 <li>
                     <Link to="/hardware">Hardware</Link>
                 </li>
+                <li>
+                    <Link to="/ubicacion">Ubicacion</Link>
+                </li>
+
                 <li className="logout">
                     <Link to="/logout">Logout</Link>
                 </li>

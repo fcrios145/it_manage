@@ -13,10 +13,18 @@ class Ubicacion (models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+class Persona (models.Model):
+    nombre = models.CharField(max_length=256)
+    departamento = models.CharField(max_length=256)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)    
+
+    def __str__(self):
+        return self.nombre
 
 class PC (models.Model):
     ubicacion = models.ForeignKey(Ubicacion, on_delete=models.CASCADE)
-    responsable = models.CharField(max_length=256)
+    persona = models.ForeignKey(Persona, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -59,7 +67,6 @@ class HardwarePC (models.Model):
     hardware = models.ForeignKey(Hardware, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
 
 
 # This code is triggered whenever a new user has been created and saved to the database

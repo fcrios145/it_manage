@@ -42,4 +42,5 @@ urlpatterns = [
 
     url(r'^tipohardware/$', views.TipoHardwareViewSet.as_view()),
     url(r'^hardware/$', views.HardwareViewSet.as_view()),
+    url(r'^ubicacion/$', views.UbicacionViewSet.as_view()),
 ]

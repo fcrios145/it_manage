@@ -5,4 +5,5 @@ from it_manage_app.models import *
 
 admin.site.register(TipoHardware)
 admin.site.register(Hardware);
+admin.site.register(Persona);
 

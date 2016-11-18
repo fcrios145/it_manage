@@ -26,10 +26,16 @@ const hardware = {
     items: []
 }
 
+const ubicacion = {
+    isFetching: false,
+    items: []
+}
+
 const defaultState = {
     user,
     tipoHardware,
-    hardware
+    hardware,
+    ubicacion
 }
 
 

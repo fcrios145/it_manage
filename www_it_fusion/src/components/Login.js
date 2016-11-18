@@ -17,9 +17,10 @@ class Login extends Component {
         //Auth.getToken('kriz', 'jirameki22');
         Auth.login(user.value, password.value, (loggedIn) => {
             if (loggedIn) {
-                alert('exito');
+                //alert('exito');
                 this.props.fetchardware();
                 this.props.fetchTipoHardware();
+                this.props.fetchUbicacion();
                 this.props.router.push('dashboard');
             } else {
                 alert('no exito');

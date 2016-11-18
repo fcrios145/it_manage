@@ -7,6 +7,7 @@ import AppConnect from './components/AppConnect';
 import Dashboard from './components/Dashboard';
 import TipoHardwareView from './components/TipoHardwareView';
 import HardwareView from './components/HardwareView';
+import UbicacionView from './components/UbicacionView';
 import Auth from './helpers/auth';
 
 import { Router, Route, IndexRoute } from 'react-router';
@@ -34,6 +35,7 @@ const router = (
                 <Route path="/logout" component={ Logout } />
                 <Route onEnter={requireAuth} path="/tipohardware" component={ TipoHardwareView } />
                 <Route onEnter={requireAuth} path="/hardware" component={ HardwareView } />
+                <Route onEnter={requireAuth} path="/ubicacion" component={ UbicacionView } />
             </Route>
         </Router>
     </Provider>
