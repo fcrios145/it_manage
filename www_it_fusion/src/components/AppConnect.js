@@ -4,6 +4,8 @@ import * as tipoHardware from '../actions/tipoHardwareActions';
 import * as loginActions from '../actions/loginActions';
 import * as hardwareActions from '../actions/HardwareActions';
 import * as ubicacionActions from '../actions/ubicacionActions';
+import * as personaActions from '../actions/personaActions';
+import * as pcActions from '../actions/pcActions';
 import App from './App';
 
 function mapStateToProps(state) {
@@ -11,7 +13,9 @@ function mapStateToProps(state) {
         user: state.user,
         tipoHardware: state.tipoHardware,
         hardware: state.hardware,
-        ubicacion: state.ubicacion
+        ubicacion: state.ubicacion,
+        persona: state.persona,
+        pc: state.pc
     }
     
 }
@@ -19,7 +23,10 @@ function mapStateToProps(state) {
 const acciones = Object.assign({}, tipoHardware, {
         ...loginActions,
         ...hardwareActions,
-        ...ubicacionActions
+        ...ubicacionActions,
+        ...personaActions,
+        ...personaActions,
+        ...pcActions
       })
 
 function mapDispatchToProps(dispatch) {

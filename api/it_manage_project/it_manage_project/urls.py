@@ -43,4 +43,6 @@ urlpatterns = [
     url(r'^tipohardware/$', views.TipoHardwareViewSet.as_view()),
     url(r'^hardware/$', views.HardwareViewSet.as_view()),
     url(r'^ubicacion/$', views.UbicacionViewSet.as_view()),
+    url(r'^persona/$', views.PersonaViewSet.as_view()),
+    url(r'^pc/$', views.PcViewSet.as_view()),
 ]

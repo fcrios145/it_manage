@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User, Group
 from rest_framework import serializers
-from it_manage_app.models import TipoHardware, Hardware, Ubicacion
+from it_manage_app.models import TipoHardware, Hardware, Ubicacion, Persona, PC, HardwarePC
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -29,3 +29,20 @@ class UbicacionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ubicacion
         fields = ('id', 'nombre')
+
+class PersonaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Persona
+        fields = ('id', 'nombre', 'departamento')
+
+class HardwarePCSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HardwarePC
+        fields = ('id', 'pc', 'hardware')
+
+class PcSerializer(serializers.ModelSerializer):
+    hardwarePC = HardwarePCSerializer(many=True)
+
+    class Meta:
+        model = PC
+        fields = ('id', 'ubicacion', 'persona', 'hardwarePC')

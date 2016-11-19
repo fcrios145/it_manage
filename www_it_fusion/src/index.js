@@ -8,6 +8,8 @@ import Dashboard from './components/Dashboard';
 import TipoHardwareView from './components/TipoHardwareView';
 import HardwareView from './components/HardwareView';
 import UbicacionView from './components/UbicacionView';
+import PersonaView from './components/PersonaView';
+import pcView from './components/pcView';
 import Auth from './helpers/auth';
 
 import { Router, Route, IndexRoute } from 'react-router';
@@ -36,6 +38,8 @@ const router = (
                 <Route onEnter={requireAuth} path="/tipohardware" component={ TipoHardwareView } />
                 <Route onEnter={requireAuth} path="/hardware" component={ HardwareView } />
                 <Route onEnter={requireAuth} path="/ubicacion" component={ UbicacionView } />
+                <Route onEnter={requireAuth} path="/persona" component={ PersonaView } />
+                <Route onEnter={requireAuth} path="/pc" component={ pcView } />
             </Route>
         </Router>
     </Provider>

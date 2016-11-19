@@ -21,6 +21,7 @@ class Login extends Component {
                 this.props.fetchardware();
                 this.props.fetchTipoHardware();
                 this.props.fetchUbicacion();
+                this.props.fetchPersona();
                 this.props.router.push('dashboard');
             } else {
                 alert('no exito');

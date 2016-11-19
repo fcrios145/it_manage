@@ -31,12 +31,20 @@ const ubicacion = {
     items: []
 }
 
+const persona = {
+    isFetching: false,
+    items: []
+}
+
 const defaultState = {
     user,
     tipoHardware,
     hardware,
-    ubicacion
+    ubicacion,
+    persona
 }
+
+
 
 
 //const store = createStore(rootReducer, defaultState);

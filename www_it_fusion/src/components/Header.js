@@ -18,6 +18,12 @@ class Header extends React.Component {
                 <li>
                     <Link to="/ubicacion">Ubicacion</Link>
                 </li>
+                <li>
+                    <Link to="/persona">Persona</Link>
+                </li>
+                <li>
+                    <Link to="/pc">PC</Link>
+                </li>
 
                 <li className="logout">
                     <Link to="/logout">Logout</Link>
